@@ -17,12 +17,12 @@ cd "$BENCHMARK_HOME" || { echo "Error changing directory."; exit 1; }
 
 echo "Verifying servlet-raw"
 echo ""
-toolset/run-tests.py -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test servlet-raw --type all -m verify
+toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test servlet-raw --type all -m verify
 
 echo "Verifying cpoll_cppsp-postgres-raw"
 echo ""
-toolset/run-tests.py -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test cpoll_cppsp-postgres-raw --type all -m verify
+toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test cpoll_cppsp-postgres-raw --type all -m verify
 
 echo "Verifying nodejs-mongodb"
 echo ""
-toolset/run-tests.py -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test nodejs-mongodb --type all -m verify
+toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --max-threads 1 --name smoketest --test nodejs-mongodb --type all -m verify
