@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # Bash script to deploy Web Framework Benchmarks on hosts that are already provisioned.
 #

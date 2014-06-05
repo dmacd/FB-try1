@@ -62,11 +62,11 @@ class Installer:
     self.__run_command("sudo apt-get install maven -qq")
     self.__run_command("mvn -version")
 
-    #######################################
-    # Languages
-    #######################################
+#     #######################################
+#     # Languages
+#     #######################################
 
-    self._install_python()
+#     self._install_python()
 
     #
     # Dart
@@ -95,15 +95,15 @@ class Installer:
     self.__run_command("sudo apt-get install openjdk-7-jdk", True)
     self.__run_command("sudo apt-get remove --purge openjdk-6-jre openjdk-6-jre-headless", True)
 
-    #
-    # Ruby/JRuby
-    #
-    self.__run_command("curl -L get.rvm.io | bash -s head --auto-dotfiles")
-    self.__run_command("echo rvm_auto_reload_flag=2 >> ~/.rvmrc")
-    self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm install 2.0.0-p0")
-    self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm 2.0.0-p0 do gem install bundler")
-    self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm install jruby-1.7.8")
-    self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm jruby-1.7.8 do gem install bundler")
+#     #
+#     # Ruby/JRuby
+#     #
+#     self.__run_command("curl -L get.rvm.io | bash -s head --auto-dotfiles")
+#     self.__run_command("echo rvm_auto_reload_flag=2 >> ~/.rvmrc")
+#     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm install 2.0.0-p0")
+#     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm 2.0.0-p0 do gem install bundler")
+#     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm install jruby-1.7.8")
+#     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm jruby-1.7.8 do gem install bundler")
 
     #
     # go
@@ -121,25 +121,25 @@ class Installer:
     self.__run_command("perl cpanminus.pl --sudo App::cpanminus", retry=True)
     self.__run_command("cpanm -f -S DBI DBD::mysql Kelp Dancer Mojolicious Kelp::Module::JSON::XS Dancer::Plugin::Database Starman Plack JSON Web::Simple DBD::Pg JSON::XS EV HTTP::Parser::XS Monoceros EV IO::Socket::IP IO::Socket::SSL", retry=True)
 
-    #
-    # php
-    #
-    self.__download("http://museum.php.net/php5/php-5.4.13.tar.gz")
-    self.__run_command("tar xzf php-5.4.13.tar.gz")
-    self.__run_command("./configure --with-pdo-mysql --with-mysql --with-mcrypt --enable-intl --enable-mbstring --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --with-openssl", cwd="php-5.4.13")
-    self.__run_command("make", cwd="php-5.4.13")
-    self.__run_command("sudo make install", cwd="php-5.4.13")
-    self.__run_command("printf \"\\n\" | sudo pecl install apc-beta", cwd="php-5.4.13", retry=True)
-    self.__run_command("sudo cp ../config/php.ini /usr/local/lib/php.ini")
-    self.__run_command("sudo cp ../config/php-fpm.conf /usr/local/lib/php-fpm.conf")
+#     #
+#     # php
+#     #
+#     self.__download("http://museum.php.net/php5/php-5.4.13.tar.gz")
+#     self.__run_command("tar xzf php-5.4.13.tar.gz")
+#     self.__run_command("./configure --with-pdo-mysql --with-mysql --with-mcrypt --enable-intl --enable-mbstring --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --with-openssl", cwd="php-5.4.13")
+#     self.__run_command("make", cwd="php-5.4.13")
+#     self.__run_command("sudo make install", cwd="php-5.4.13")
+#     self.__run_command("printf \"\\n\" | sudo pecl install apc-beta", cwd="php-5.4.13", retry=True)
+#     self.__run_command("sudo cp ../config/php.ini /usr/local/lib/php.ini")
+#     self.__run_command("sudo cp ../config/php-fpm.conf /usr/local/lib/php-fpm.conf")
 
-    # Composer
-    self.__download("https://getcomposer.org/installer", "composer-installer.php")
-    self.__run_command("php composer-installer.php --install-dir=bin")
+#     # Composer
+#     self.__download("https://getcomposer.org/installer", "composer-installer.php")
+#     self.__run_command("php composer-installer.php --install-dir=bin")
 
-    # Phalcon
-    self.__run_command("git clone git://github.com/phalcon/cphalcon.git", retry=True)
-    self.__run_command("sudo ./install", cwd="cphalcon/build")
+#     # Phalcon
+#     self.__run_command("git clone git://github.com/phalcon/cphalcon.git", retry=True)
+#     self.__run_command("sudo ./install", cwd="cphalcon/build")
 
     # YAF
     self.__run_command("sudo pecl install yaf")
@@ -185,14 +185,14 @@ class Installer:
     self.__run_command("bin/nimrod c koch", cwd="nimrod")
     self.__run_command("./koch boot -d:release", cwd="nimrod")
 
-    #
-    # Racket
-    #
-    self.__download("https://github.com/plt/racket/archive/v5.3.6.tar.gz", "racket-5.3.6.tar.gz")
-    self.__run_command("tar xzf racket-5.3.6.tar.gz")
-    self.__run_command("./configure", cwd="racket-5.3.6/src")
-    self.__run_command("make", cwd="racket-5.3.6/src")
-    self.__run_command("sudo make install", cwd="racket-5.3.6/src")
+#     #
+#     # Racket
+#     #
+#     self.__download("https://github.com/plt/racket/archive/v5.3.6.tar.gz", "racket-5.3.6.tar.gz")
+#     self.__run_command("tar xzf racket-5.3.6.tar.gz")
+#     self.__run_command("./configure", cwd="racket-5.3.6/src")
+#     self.__run_command("make", cwd="racket-5.3.6/src")
+#     self.__run_command("sudo make install", cwd="racket-5.3.6/src")
 
     #
     # Ur/Web
@@ -202,7 +202,7 @@ class Installer:
     self.__run_command("./configure", cwd="urweb")
     self.__run_command("make", cwd="urweb")
     self.__run_command("sudo make install", cwd="urweb")
-    
+
     #
     # HHVM
     #
@@ -232,7 +232,7 @@ class Installer:
     self.__run_command("./configure --with-luajit --with-http_postgres_module", cwd="ngx_openresty-1.5.8.1")
     self.__run_command("make", cwd="ngx_openresty-1.5.8.1")
     self.__run_command("sudo make install", cwd="ngx_openresty-1.5.8.1")
-    
+
     #
     # Lapis
     #
@@ -277,27 +277,27 @@ class Installer:
     # Frameworks
     ##############################################################
 
-    #
-    # Grails
-    #
-    self.__download("http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.3.3.zip")
-    self.__run_command("unzip -o grails-2.3.3.zip")
+#     #
+#     # Grails
+#     #
+#     self.__download("http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.3.3.zip")
+#     self.__run_command("unzip -o grails-2.3.3.zip")
 
-    #
-    # Play 2
-    #
-    self.__download("http://downloads.typesafe.com/play/2.2.0/play-2.2.0.zip")
-    self.__run_command("unzip -o play-2.2.0.zip")
+#     #
+#     # Play 2
+#     #
+#     self.__download("http://downloads.typesafe.com/play/2.2.0/play-2.2.0.zip")
+#     self.__run_command("unzip -o play-2.2.0.zip")
 
-    #
-    # Play 1
-    #
-    self.__download("http://downloads.typesafe.com/releases/play-1.2.5.zip")
-    self.__run_command("unzip -o play-1.2.5.zip")
-    self.__run_command("mv play-1.2.5/play play-1.2.5/play1")
+#     #
+#     # Play 1
+#     #
+#     self.__download("http://downloads.typesafe.com/releases/play-1.2.5.zip")
+#     self.__run_command("unzip -o play-1.2.5.zip")
+#     self.__run_command("mv play-1.2.5/play play-1.2.5/play1")
 
-    # siena
-    self.__run_command("yes | play-1.2.5/play1 install siena")
+#     # siena
+#     self.__run_command("yes | play-1.2.5/play1 install siena")
 
     #
     # TreeFrog Framework
@@ -501,7 +501,7 @@ class Installer:
     sudo cp -R -p /var/log/mongodb /ssd/log/
     sudo start mongodb
     """
-    
+
     print("\nINSTALL: %s" % self.benchmarker.database_ssh_string)
     p = subprocess.Popen(self.benchmarker.database_ssh_string.split(" "), stdin=subprocess.PIPE)
     p.communicate(remote_script)
@@ -549,7 +549,7 @@ class Installer:
     sudo cp wrk /usr/local/bin/wrk-pipeline
     cd ~
     """
-    
+
     print("\nINSTALL: %s" % self.benchmarker.client_ssh_string)
     p = subprocess.Popen(self.benchmarker.client_ssh_string.split(" "), stdin=subprocess.PIPE)
     p.communicate(remote_script)

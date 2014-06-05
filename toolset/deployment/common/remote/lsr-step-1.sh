@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # Bash script to be executed on the Linux server.
 #
@@ -46,7 +46,7 @@ sudo apt-get install git -qq
 
 echo ""
 echo "Clone FrameworkBenchmarks repository"
-git clone $BENCHMARK_REPOSITORY "$BENCHMARK_HOME" || { echo "Error cloning repository at $BENCHMARK_REPOSITORY."; exit 1; }
+git clone $BENCHMARK_REPOSITORY "$BENCHMARK_HOME" || { echo "Error cloning repository at $BENCHMARK_REPOSITORY."; } ##exit 1; }
 cd "$BENCHMARK_HOME"
 git checkout $BENCHMARK_BRANCH || { echo "Error checking out $BENCHMARK_BRANCH branch."; exit 1; }
 git branch
@@ -55,7 +55,7 @@ echo ""
 
 echo ""
 echo "Installing benchmark software"
-toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --install-software --install-error-action abort --list-tests || { echo "Error installing software."; exit 1; }
+toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --install-software --install-error-action continue --list-tests || { echo "Error installing software."; exit 1; }
 
 echo ""
 echo "End of step 1"

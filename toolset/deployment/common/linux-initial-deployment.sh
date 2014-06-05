@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # This script installs prerequisites on the Linux server, clones the benchmark repository
 # and performs initial Linux server setup.

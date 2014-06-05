@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # Bash script to be executed on the Linux server.
 #
