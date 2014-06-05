@@ -74,14 +74,14 @@ class Installer:
     self.__download("http://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-linux-x64-release.zip")
     self.__run_command("unzip dartsdk-linux-x64-release.zip")
 
-    #
-    # Erlang
-    #
-    self.__run_command("sudo cp ../config/erlang.list /etc/apt/sources.list.d/erlang.list")
-    self.__download("http://binaries.erlang-solutions.com/debian/erlang_solutions.asc")
-    self.__run_command("sudo apt-key add erlang_solutions.asc")
-    self.__run_command("sudo apt-get update")
-    self.__run_command("sudo apt-get install esl-erlang", True)
+#     #
+#     # Erlang
+#     #
+#     self.__run_command("sudo cp ../config/erlang.list /etc/apt/sources.list.d/erlang.list")
+#     self.__download("http://binaries.erlang-solutions.com/debian/erlang_solutions.asc")
+#     self.__run_command("sudo apt-key add erlang_solutions.asc")
+#     self.__run_command("sudo apt-get update")
+#     self.__run_command("sudo apt-get install esl-erlang", True)
 
     #
     # nodejs
@@ -111,15 +111,15 @@ class Installer:
     self.__download("http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz");
     self.__run_command("tar xzf go1.2.linux-amd64.tar.gz")
 
-    #
-    # Perl
-    #
-    self.__download("http://downloads.activestate.com/ActivePerl/releases/5.16.3.1603/ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746.tar.gz");
-    self.__run_command("tar xzf ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746.tar.gz");
-    self.__run_command("sudo ./install.sh --license-accepted --prefix /opt/ActivePerl-5.16 --no-install-html", cwd="ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746", send_yes=True, retry=True)
-    self.__download("http://cpanmin.us", "cpanminus.pl")
-    self.__run_command("perl cpanminus.pl --sudo App::cpanminus", retry=True)
-    self.__run_command("cpanm -f -S DBI DBD::mysql Kelp Dancer Mojolicious Kelp::Module::JSON::XS Dancer::Plugin::Database Starman Plack JSON Web::Simple DBD::Pg JSON::XS EV HTTP::Parser::XS Monoceros EV IO::Socket::IP IO::Socket::SSL", retry=True)
+#     #
+#     # Perl
+#     #
+#     self.__download("http://downloads.activestate.com/ActivePerl/releases/5.16.3.1603/ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746.tar.gz");
+#     self.__run_command("tar xzf ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746.tar.gz");
+#     self.__run_command("sudo ./install.sh --license-accepted --prefix /opt/ActivePerl-5.16 --no-install-html", cwd="ActivePerl-5.16.3.1603-x86_64-linux-glibc-2.3.5-296746", send_yes=True, retry=True)
+#     self.__download("http://cpanmin.us", "cpanminus.pl")
+#     self.__run_command("perl cpanminus.pl --sudo App::cpanminus", retry=True)
+#     self.__run_command("cpanm -f -S DBI DBD::mysql Kelp Dancer Mojolicious Kelp::Module::JSON::XS Dancer::Plugin::Database Starman Plack JSON Web::Simple DBD::Pg JSON::XS EV HTTP::Parser::XS Monoceros EV IO::Socket::IP IO::Socket::SSL", retry=True)
 
 #     #
 #     # php
