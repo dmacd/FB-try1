@@ -55,7 +55,9 @@ echo ""
 
 echo ""
 echo "Installing benchmark software"
-toolset/run-tests.py -d "$BENCHMARK_LINUX_DATABASE" --database-user "$BENCHMARK_LINUX_USER" -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --install-software --install-error-action continue --list-tests || { echo "Error installing software."; exit 1; }
+toolset/run-tests.py -u "$BENCHMARK_LINUX_USER" -s "$BENCHMARK_SERVER_IP" -c "$BENCHMARK_CLIENT_IP" -i "$BENCHMARK_KEY_PATH" --install-software --install-error-action continue --list-tests || { echo "Error installing software."; exit 1; }
+# ...if these propagated to the server... -d "$BENCHMARK_LINUX_DATABASE" --database-user "$BENCHMARK_LINUX_USER"
+
 
 echo ""
 echo "End of step 1"
