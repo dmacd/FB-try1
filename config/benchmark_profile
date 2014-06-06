@@ -24,6 +24,7 @@ export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/local/apr/lib'
 # export TFB_CLIENT_HOST='172.16.98.98'
 # export TFB_CLIENT_USER='tfb'
 # export TFB_CLIENT_IDENTITY_FILE='/home/tfb/.ssh/id_rsa-tfb-1'
-# export TFB_DATABASE_HOST='172.16.98.118'
+export TFB_DATABASE_HOST='172.31.32.208'
+export TFB_DATABASE_USER='ubuntu'
 
 source ~/.rvm/scripts/'rvm'
