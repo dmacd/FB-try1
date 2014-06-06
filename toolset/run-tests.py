@@ -4,7 +4,7 @@ import ConfigParser
 import sys
 import os
 import multiprocessing
-from pprint import pprint 
+from pprint import pprint
 from benchmark.benchmarker import Benchmarker
 from setup.linux.unbuffered import Unbuffered
 
@@ -15,7 +15,7 @@ def main(argv=None):
     # Do argv default this way, as doing it in the functional declaration sets it at compile time
     if argv is None:
         argv = sys.argv
-	
+
     # Enable unbuffered output so messages will appear in the proper order with subprocess output.
     sys.stdout=Unbuffered(sys.stdout)
 
@@ -44,7 +44,7 @@ def main(argv=None):
 
     ##########################################################
     # Set up default values
-    ##########################################################        
+    ##########################################################
     serverHost = os.environ.get('TFB_SERVER_HOST')
     clientHost = os.environ.get('TFB_CLIENT_HOST')
     clientUser = os.environ.get('TFB_CLIENT_USER')

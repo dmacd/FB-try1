@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # This scripts performs additional setup on the Linux server and the Linux client.
 #

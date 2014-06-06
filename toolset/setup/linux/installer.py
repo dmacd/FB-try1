@@ -68,11 +68,11 @@ class Installer:
 
 #     self._install_python()
 
-    #
-    # Dart
-    #
-    self.__download("http://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-linux-x64-release.zip")
-    self.__run_command("unzip dartsdk-linux-x64-release.zip")
+#     #
+#     # Dart
+#     #
+#     self.__download("http://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-linux-x64-release.zip")
+#     self.__run_command("unzip dartsdk-linux-x64-release.zip")
 
 #     #
 #     # Erlang
@@ -105,11 +105,11 @@ class Installer:
 #     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm install jruby-1.7.8")
 #     self.__bash_from_string("source ~/.rvm/scripts/'rvm' && rvm jruby-1.7.8 do gem install bundler")
 
-    #
-    # go
-    #
-    self.__download("http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz");
-    self.__run_command("tar xzf go1.2.linux-amd64.tar.gz")
+#     #
+#     # go
+#     #
+#     self.__download("http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz");
+#     self.__run_command("tar xzf go1.2.linux-amd64.tar.gz")
 
 #     #
 #     # Perl
@@ -141,49 +141,49 @@ class Installer:
 #     self.__run_command("git clone git://github.com/phalcon/cphalcon.git", retry=True)
 #     self.__run_command("sudo ./install", cwd="cphalcon/build")
 
-    # YAF
-    self.__run_command("sudo pecl install yaf")
+#     # YAF
+#     self.__run_command("sudo pecl install yaf")
 
-    #
-    # Haskell
-    #
-    self.__run_command("sudo apt-get install ghc cabal-install", True)
+#     #
+#     # Haskell
+#     #
+#     self.__run_command("sudo apt-get install ghc cabal-install", True)
 
-    #
-    # RingoJs
-    #
-    self.__download("http://www.ringojs.org/downloads/ringojs_0.9-1_all.deb")
-    self.__run_command("sudo apt-get install jsvc", True)
-    self.__run_command("sudo dpkg -i ringojs_0.9-1_all.deb", True)
-    self.__run_command("rm ringojs_0.9-1_all.deb")
+#     #
+#     # RingoJs
+#     #
+#     self.__download("http://www.ringojs.org/downloads/ringojs_0.9-1_all.deb")
+#     self.__run_command("sudo apt-get install jsvc", True)
+#     self.__run_command("sudo dpkg -i ringojs_0.9-1_all.deb", True)
+#     self.__run_command("rm ringojs_0.9-1_all.deb")
 
-    #
-    # Mono
-    #
-    self.__run_command("git clone git://github.com/mono/mono", retry=True)
-    self.__run_command("git checkout mono-3.2.8-branch", cwd="mono")
-    self.__run_command("./autogen.sh --prefix=/usr/local", cwd="mono")
-    self.__run_command("make get-monolite-latest", cwd="mono")
-    self.__run_command("make EXTERNAL_MCS=${PWD}/mcs/class/lib/monolite/basic.exe", cwd="mono")
-    self.__run_command("sudo make install", cwd="mono")
+#     #
+#     # Mono
+#     #
+#     self.__run_command("git clone git://github.com/mono/mono", retry=True)
+#     self.__run_command("git checkout mono-3.2.8-branch", cwd="mono")
+#     self.__run_command("./autogen.sh --prefix=/usr/local", cwd="mono")
+#     self.__run_command("make get-monolite-latest", cwd="mono")
+#     self.__run_command("make EXTERNAL_MCS=${PWD}/mcs/class/lib/monolite/basic.exe", cwd="mono")
+#     self.__run_command("sudo make install", cwd="mono")
 
-    self.__run_command("mozroots --import --sync", retry=True)
+#     self.__run_command("mozroots --import --sync", retry=True)
 
-    self.__run_command("git clone git://github.com/mono/xsp", retry=True)
-    self.__run_command("./autogen.sh --prefix=/usr/local", cwd="xsp")
-    self.__run_command("make", cwd="xsp")
-    self.__run_command("sudo make install", cwd="xsp")
+#     self.__run_command("git clone git://github.com/mono/xsp", retry=True)
+#     self.__run_command("./autogen.sh --prefix=/usr/local", cwd="xsp")
+#     self.__run_command("make", cwd="xsp")
+#     self.__run_command("sudo make install", cwd="xsp")
 
-    #
-    # Nimrod
-    #
-    self.__run_command("git clone git://github.com/Araq/Nimrod.git nimrod", retry=True)
-    self.__run_command("git reset --hard \"43d12ef7495238977e4f236f6d25bce5bd687967\"", cwd="nimrod")
-    self.__run_command("git clone --depth 1 git://github.com/nimrod-code/csources.git", cwd="nimrod", retry=True)
-    self.__run_command("chmod +x build.sh", cwd="nimrod/csources")
-    self.__run_command("./build.sh", cwd="nimrod/csources")
-    self.__run_command("bin/nimrod c koch", cwd="nimrod")
-    self.__run_command("./koch boot -d:release", cwd="nimrod")
+#     #
+#     # Nimrod
+#     #
+#     self.__run_command("git clone git://github.com/Araq/Nimrod.git nimrod", retry=True)
+#     self.__run_command("git reset --hard \"43d12ef7495238977e4f236f6d25bce5bd687967\"", cwd="nimrod")
+#     self.__run_command("git clone --depth 1 git://github.com/nimrod-code/csources.git", cwd="nimrod", retry=True)
+#     self.__run_command("chmod +x build.sh", cwd="nimrod/csources")
+#     self.__run_command("./build.sh", cwd="nimrod/csources")
+#     self.__run_command("bin/nimrod c koch", cwd="nimrod")
+#     self.__run_command("./koch boot -d:release", cwd="nimrod")
 
 #     #
 #     # Racket
@@ -194,22 +194,22 @@ class Installer:
 #     self.__run_command("make", cwd="racket-5.3.6/src")
 #     self.__run_command("sudo make install", cwd="racket-5.3.6/src")
 
-    #
-    # Ur/Web
-    #
-    self.__run_command("hg clone http://hg.impredicative.com/urweb")
-    self.__run_command("./autogen.sh", cwd="urweb")
-    self.__run_command("./configure", cwd="urweb")
-    self.__run_command("make", cwd="urweb")
-    self.__run_command("sudo make install", cwd="urweb")
+#     #
+#     # Ur/Web
+#     #
+#     self.__run_command("hg clone http://hg.impredicative.com/urweb")
+#     self.__run_command("./autogen.sh", cwd="urweb")
+#     self.__run_command("./configure", cwd="urweb")
+#     self.__run_command("make", cwd="urweb")
+#     self.__run_command("sudo make install", cwd="urweb")
 
-    #
-    # HHVM
-    #
-    self.__run_command("wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -")
-    self.__run_command("echo deb http://dl.hhvm.com/ubuntu precise main | sudo tee /etc/apt/sources.list.d/hhvm.list")
-    self.__run_command("sudo apt-get update")
-    self.__run_command("sudo apt-get install hhvm")
+#     #
+#     # HHVM
+#     #
+#     self.__run_command("wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -")
+#     self.__run_command("echo deb http://dl.hhvm.com/ubuntu precise main | sudo tee /etc/apt/sources.list.d/hhvm.list")
+#     self.__run_command("sudo apt-get update")
+#     self.__run_command("sudo apt-get install hhvm")
 
     #######################################
     # Webservers
@@ -224,54 +224,54 @@ class Installer:
     self.__run_command("make", cwd="nginx-1.4.1")
     self.__run_command("sudo make install", cwd="nginx-1.4.1")
 
-    #
-    # Openresty (nginx with lua stuff)
-    #
-    self.__download("http://openresty.org/download/ngx_openresty-1.5.8.1.tar.gz")
-    self.__run_command("tar xzf ngx_openresty-1.5.8.1.tar.gz")
-    self.__run_command("./configure --with-luajit --with-http_postgres_module", cwd="ngx_openresty-1.5.8.1")
-    self.__run_command("make", cwd="ngx_openresty-1.5.8.1")
-    self.__run_command("sudo make install", cwd="ngx_openresty-1.5.8.1")
+#     #
+#     # Openresty (nginx with lua stuff)
+#     #
+#     self.__download("http://openresty.org/download/ngx_openresty-1.5.8.1.tar.gz")
+#     self.__run_command("tar xzf ngx_openresty-1.5.8.1.tar.gz")
+#     self.__run_command("./configure --with-luajit --with-http_postgres_module", cwd="ngx_openresty-1.5.8.1")
+#     self.__run_command("make", cwd="ngx_openresty-1.5.8.1")
+#     self.__run_command("sudo make install", cwd="ngx_openresty-1.5.8.1")
 
-    #
-    # Lapis
-    #
-    self.__run_command("sudo apt-get install luarocks")
-    self.__run_command("sudo luarocks install http://github.com/leafo/lapis/raw/master/lapis-dev-1.rockspec")
+#     #
+#     # Lapis
+#     #
+#     self.__run_command("sudo apt-get install luarocks")
+#     self.__run_command("sudo luarocks install http://github.com/leafo/lapis/raw/master/lapis-dev-1.rockspec")
 
 
-    #
-    # Resin
-    #
+#     #
+#     # Resin
+#     #
 
-    self.__run_command("sudo cp -r /usr/lib/jvm/java-1.7.0-openjdk-amd64/include /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/bin/")
-    self.__download("http://www.caucho.com/download/resin-4.0.36.tar.gz")
-    self.__run_command("tar xzf resin-4.0.36.tar.gz")
-    self.__run_command("./configure --prefix=`pwd`", cwd="resin-4.0.36")
-    self.__run_command("make", cwd="resin-4.0.36")
-    self.__run_command("make install", cwd="resin-4.0.36")
-    self.__run_command("mv conf/resin.properties conf/resin.properties.orig", cwd="resin-4.0.36")
-    self.__run_command("cat ../config/resin.properties > resin-4.0.36/conf/resin.properties")
-    self.__run_command("mv conf/resin.xml conf/resin.xml.orig", cwd="resin-4.0.36")
-    self.__run_command("cat ../config/resin.xml > resin-4.0.36/conf/resin.xml")
+#     self.__run_command("sudo cp -r /usr/lib/jvm/java-1.7.0-openjdk-amd64/include /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/bin/")
+#     self.__download("http://www.caucho.com/download/resin-4.0.36.tar.gz")
+#     self.__run_command("tar xzf resin-4.0.36.tar.gz")
+#     self.__run_command("./configure --prefix=`pwd`", cwd="resin-4.0.36")
+#     self.__run_command("make", cwd="resin-4.0.36")
+#     self.__run_command("make install", cwd="resin-4.0.36")
+#     self.__run_command("mv conf/resin.properties conf/resin.properties.orig", cwd="resin-4.0.36")
+#     self.__run_command("cat ../config/resin.properties > resin-4.0.36/conf/resin.properties")
+#     self.__run_command("mv conf/resin.xml conf/resin.xml.orig", cwd="resin-4.0.36")
+#     self.__run_command("cat ../config/resin.xml > resin-4.0.36/conf/resin.xml")
 
-    #
-    # Mongrel2
-    #
-    self.__download("http://download.zeromq.org/zeromq-4.0.3.tar.gz")
-    self.__run_command("tar xzf zeromq-4.0.3.tar.gz")
-    self.__run_command("./configure", cwd="zeromq-4.0.3")
-    self.__run_command("make", cwd="zeromq-4.0.3")
-    self.__run_command("sudo make install", cwd="zeromq-4.0.3")
-    self.__run_command("sudo apt-get install sqlite3 libsqlite3-dev uuid uuid-runtime uuid-dev")
-    self.__run_command("sudo ldconfig -v")
-    self.__download("https://github.com/zedshaw/mongrel2/tarball/v1.8.1", "mongrel2.tar.gz")
-    self.__run_command("tar xvf mongrel2.tar.gz")
-    self.__run_command("mv zedshaw-mongrel2-aa2ecf8 mongrel2")
-    # for zmq4, we update the following file manually (not in v1.8.1)
-    self.__download("https://raw.github.com/zedshaw/mongrel2/9b565eeea003783c47502c2d350b99c9684ce97c/src/zmq_compat.h")
-    self.__run_command("mv -f zmq_compat.h mongrel2/src/")
-    self.__run_command("make clean all && sudo make install", cwd="mongrel2")
+#     #
+#     # Mongrel2
+#     #
+#     self.__download("http://download.zeromq.org/zeromq-4.0.3.tar.gz")
+#     self.__run_command("tar xzf zeromq-4.0.3.tar.gz")
+#     self.__run_command("./configure", cwd="zeromq-4.0.3")
+#     self.__run_command("make", cwd="zeromq-4.0.3")
+#     self.__run_command("sudo make install", cwd="zeromq-4.0.3")
+#     self.__run_command("sudo apt-get install sqlite3 libsqlite3-dev uuid uuid-runtime uuid-dev")
+#     self.__run_command("sudo ldconfig -v")
+#     self.__download("https://github.com/zedshaw/mongrel2/tarball/v1.8.1", "mongrel2.tar.gz")
+#     self.__run_command("tar xvf mongrel2.tar.gz")
+#     self.__run_command("mv zedshaw-mongrel2-aa2ecf8 mongrel2")
+#     # for zmq4, we update the following file manually (not in v1.8.1)
+#     self.__download("https://raw.github.com/zedshaw/mongrel2/9b565eeea003783c47502c2d350b99c9684ce97c/src/zmq_compat.h")
+#     self.__run_command("mv -f zmq_compat.h mongrel2/src/")
+#     self.__run_command("make clean all && sudo make install", cwd="mongrel2")
 
     ##############################################################
     # Frameworks
@@ -299,47 +299,47 @@ class Installer:
 #     # siena
 #     self.__run_command("yes | play-1.2.5/play1 install siena")
 
-    #
-    # TreeFrog Framework
-    #
-    self.__run_command("sudo apt-get install qt4-qmake libqt4-dev libqt4-sql-mysql libqt4-sql-psql g++", True)
-    self.__download("http://downloads.sourceforge.net/project/treefrog/src/treefrog-1.7.5.tar.gz")
-    self.__run_command("tar xzf treefrog-1.7.5.tar.gz")
-    self.__run_command("rm treefrog-1.7.5.tar.gz")
-    self.__run_command("./configure", cwd="treefrog-1.7.5")
-    self.__run_command("make", cwd="treefrog-1.7.5/src")
-    self.__run_command("sudo make install", cwd="treefrog-1.7.5/src")
-    self.__run_command("make", cwd="treefrog-1.7.5/tools")
-    self.__run_command("sudo make install", cwd="treefrog-1.7.5/tools")
+#     #
+#     # TreeFrog Framework
+#     #
+#     self.__run_command("sudo apt-get install qt4-qmake libqt4-dev libqt4-sql-mysql libqt4-sql-psql g++", True)
+#     self.__download("http://downloads.sourceforge.net/project/treefrog/src/treefrog-1.7.5.tar.gz")
+#     self.__run_command("tar xzf treefrog-1.7.5.tar.gz")
+#     self.__run_command("rm treefrog-1.7.5.tar.gz")
+#     self.__run_command("./configure", cwd="treefrog-1.7.5")
+#     self.__run_command("make", cwd="treefrog-1.7.5/src")
+#     self.__run_command("sudo make install", cwd="treefrog-1.7.5/src")
+#     self.__run_command("make", cwd="treefrog-1.7.5/tools")
+#     self.__run_command("sudo make install", cwd="treefrog-1.7.5/tools")
 
-    #
-    # Vert.x
-    #
-    self.__download("http://dl.bintray.com/vertx/downloads/vert.x-2.1M3.tar.gz?direct=true", "vert.x-2.1M3.tar.gz")
-    self.__run_command("tar xzf vert.x-2.1M3.tar.gz")
+#     #
+#     # Vert.x
+#     #
+#     self.__download("http://dl.bintray.com/vertx/downloads/vert.x-2.1M3.tar.gz?direct=true", "vert.x-2.1M3.tar.gz")
+#     self.__run_command("tar xzf vert.x-2.1M3.tar.gz")
 
-    #
-    # Yesod
-    #
-    self.__run_command("cabal update", retry=True)
-    self.__run_command("cabal install yesod persistent-mysql", retry=True)
+#     #
+#     # Yesod
+#     #
+#     self.__run_command("cabal update", retry=True)
+#     self.__run_command("cabal install yesod persistent-mysql", retry=True)
 
-    #
-    # Jester
-    #
-    self.__run_command("git clone git://github.com/dom96/jester.git jester/jester", retry=True)
+#     #
+#     # Jester
+#     #
+#     self.__run_command("git clone git://github.com/dom96/jester.git jester/jester", retry=True)
 
-    #
-    # Onion
-    #
-    self.__run_command("git clone https://github.com/davidmoreno/onion.git")
-    self.__run_command("mkdir build", cwd="onion")
-    self.__run_command("cmake ..", cwd="onion/build")
-    self.__run_command("make", cwd="onion/build")
+#     #
+#     # Onion
+#     #
+#     self.__run_command("git clone https://github.com/davidmoreno/onion.git")
+#     self.__run_command("mkdir build", cwd="onion")
+#     self.__run_command("cmake ..", cwd="onion/build")
+#     self.__run_command("make", cwd="onion/build")
 
-    # nawak
-    #
-    self.__run_command("git clone git://github.com/idlewan/nawak.git nawak/nawak", retry=True)
+#     # nawak
+#     #
+#     self.__run_command("git clone git://github.com/idlewan/nawak.git nawak/nawak", retry=True)
 
     print("\nINSTALL: Finished installing server software\n")
   ############################################################

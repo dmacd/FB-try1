@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 #
 # Common functions for bash scripts.
 #
@@ -48,7 +48,7 @@ function retry {
     local max_attempts=20 # Maximum number of attempts
     local sleep_time=30 # Seconds between attempts
     local attempt=1
-    
+
     until $command; do
         ((attempt++))
         if [ $attempt -gt $max_attempts ]; then
@@ -75,7 +75,7 @@ function iscygwin {
 # It also seems to fix the space problem.
 # Author: Igor Pechtchanski
 # http://cygwin.com/ml/cygwin/2004-09/msg00150.html
-function cywgin_cmd { 
+function cywgin_cmd {
     ( local c="`cygpath -w \"$1\"`";
     shift;
     local cmd=`cygpath -u $COMSPEC`;
