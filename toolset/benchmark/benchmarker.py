@@ -962,10 +962,10 @@ class Benchmarker:
       self.results['frameworks'] = [t.name for t in self.__gather_tests]
 
     # Setup the ssh command string
-    self.database_ssh_string = "ssh -T -o StrictHostKeyChecking=no " + \ #self.database_user +
-        "ubuntu" + "@" + self.database_host
-    self.client_ssh_string = "ssh -T -o StrictHostKeyChecking=no " + \ #self.client_user +
-        "ubuntu" + "@" + self.client_host
+    self.database_ssh_string = ("ssh -T -o StrictHostKeyChecking=no " + #self.database_user +
+        "ubuntu" + "@" + self.database_host)
+    self.client_ssh_string = ("ssh -T -o StrictHostKeyChecking=no " + #self.client_user +
+        "ubuntu" + "@" + self.client_host)
     if self.database_identity_file != None:
       self.database_ssh_string = self.database_ssh_string + " -i " + self.database_identity_file
     if self.client_identity_file != None:
