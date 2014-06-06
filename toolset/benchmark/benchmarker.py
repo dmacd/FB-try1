@@ -155,7 +155,7 @@ class Benchmarker:
 
     return (sftp_string +
             self.database_user
-            + "@" + self.database_host
+            + "@" + self.database_host)
   ############################################################
   # End database_sftp_string
   ############################################################
