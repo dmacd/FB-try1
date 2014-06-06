@@ -66,7 +66,7 @@ class Benchmarker:
   ############################################################
   # End run_list_test_metadata
   ############################################################
-  
+
   ############################################################
   # parse_timestamp
   # Re-parses the raw data for a given timestamp
@@ -76,7 +76,7 @@ class Benchmarker:
 
     for test in all_tests:
       test.parse_all()
-    
+
     self.__parse_results(all_tests)
 
     self.__finish()
@@ -96,7 +96,7 @@ class Benchmarker:
     ##########################
     # Get a list of all known
     # tests that we can run.
-    ##########################    
+    ##########################
     all_tests = self.__gather_tests
 
     ##########################
@@ -127,7 +127,7 @@ class Benchmarker:
 
     ##########################
     # Parse results
-    ##########################  
+    ##########################
     if self.mode == "benchmark":
       print textwrap.dedent("""
       =====================================================
@@ -186,8 +186,8 @@ class Benchmarker:
 
   ############################################################
   # get_output_file(test_name, test_type)
-  # returns the output file name for this test_name and 
-  # test_type timestamp/test_type/test_name/raw 
+  # returns the output file name for this test_name and
+  # test_type timestamp/test_type/test_name/raw
   ############################################################
   def get_output_file(self, test_name, test_type):
     return os.path.join(self.result_directory, self.timestamp, test_type, test_name, "raw")
@@ -198,7 +198,7 @@ class Benchmarker:
   ############################################################
   # output_file(test_name, test_type)
   # returns the output file for this test_name and test_type
-  # timestamp/test_type/test_name/raw 
+  # timestamp/test_type/test_name/raw
   ############################################################
   def output_file(self, test_name, test_type):
     path = self.get_output_file(test_name, test_type)
@@ -213,8 +213,8 @@ class Benchmarker:
 
   ############################################################
   # get_warning_file(test_name, test_type)
-  # returns the output file name for this test_name and 
-  # test_type timestamp/test_type/test_name/raw 
+  # returns the output file name for this test_name and
+  # test_type timestamp/test_type/test_name/raw
   ############################################################
   def get_warning_file(self, test_name, test_type):
     return os.path.join(self.result_directory, self.timestamp, test_type, test_name, "warn")
@@ -225,7 +225,7 @@ class Benchmarker:
   ############################################################
   # warning_file(test_name, test_type)
   # returns the warning file for this test_name and test_type
-  # timestamp/test_type/test_name/raw 
+  # timestamp/test_type/test_name/raw
   ############################################################
   def warning_file(self, test_name, test_type):
     path = self.get_warning_file(test_name, test_type)
@@ -337,7 +337,7 @@ class Benchmarker:
         continue
 
       test = framework_test.parse_config(config, os.path.dirname(config_file_name), self)
-      # If the user specified which tests to run, then 
+      # If the user specified which tests to run, then
       # we can skip over tests that are not in that list
       if self.test == None:
         tests = tests + test
@@ -391,7 +391,7 @@ class Benchmarker:
   ############################################################
 
   ############################################################
-  # Makes any necessary changes to the server that should be 
+  # Makes any necessary changes to the server that should be
   # made before running the tests. This involves setting kernal
   # settings to allow for more connections, or more file
   # descriptiors
@@ -418,7 +418,7 @@ class Benchmarker:
   ############################################################
 
   ############################################################
-  # Makes any necessary changes to the database machine that 
+  # Makes any necessary changes to the database machine that
   # should be made before running the tests. Is very similar
   # to the server setup, but may also include database specific
   # changes.
@@ -439,7 +439,7 @@ class Benchmarker:
   ############################################################
 
   ############################################################
-  # Makes any necessary changes to the client machine that 
+  # Makes any necessary changes to the client machine that
   # should be made before running the tests. Is very similar
   # to the server setup, but may also include client specific
   # changes.
@@ -528,13 +528,13 @@ class Benchmarker:
         # application server or the database server don't match
         # our current environment
         out.write("OS or Database OS specified in benchmark_config does not match the current environment. Skipping.\n")
-        return 
-      
+        return
+
       # If the test is in the excludes list, we skip it
       if self.exclude != None and test.name in self.exclude:
         out.write("Test {name} has been added to the excludes list. Skipping.\n".format(name=test.name))
         return
-      
+
       # If the test does not contain an implementation of the current test-type, skip it
       if self.type != 'all' and not test.contains_type(self.type):
         out.write("Test type {type} does not contain an implementation of the current test-type. Skipping.\n".format(type=self.type))
@@ -559,7 +559,7 @@ class Benchmarker:
 
       ##########################
       # Start this test
-      ##########################  
+      ##########################
       out.write( textwrap.dedent("""
       -----------------------------------------------------
         Starting {name}
@@ -587,7 +587,7 @@ class Benchmarker:
           return
 
         result = test.start(out, err)
-        if result != 0: 
+        if result != 0:
           test.stop(out, err)
           time.sleep(5)
           err.write( "ERROR: Problem starting {name}\n".format(name=test.name) )
@@ -599,7 +599,7 @@ class Benchmarker:
           err.flush()
           self.__write_intermediate_results(test.name,"<setup.py>#start() returned non-zero")
           return
-        
+
         time.sleep(self.sleep)
 
         ##########################
@@ -842,30 +842,30 @@ class Benchmarker:
 
   ##########################################################################################
   # Constructor
-  ########################################################################################## 
+  ##########################################################################################
 
   ############################################################
-  # Initialize the benchmarker. The args are the arguments 
+  # Initialize the benchmarker. The args are the arguments
   # parsed via argparser.
   ############################################################
   def __init__(self, args):
-    
+
     self.__dict__.update(args)
     self.start_time = time.time()
     self.run_test_timeout_seconds = 3600
 
     # setup logging
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-    
+
     # setup some additional variables
     if self.database_user == None: self.database_user = self.client_user
     if self.database_host == None: self.database_host = self.client_host
     if self.database_identity_file == None: self.database_identity_file = self.client_identity_file
 
-    # setup results and latest_results directories 
+    # setup results and latest_results directories
     self.result_directory = os.path.join("results", self.name)
     self.latest_results_directory = self.latest_results_directory()
-  
+
     if self.parse != None:
       self.timestamp = self.parse
     else:
@@ -889,7 +889,7 @@ class Benchmarker:
         queries = 0
 
       queries = queries + self.query_interval
-    
+
     # Load the latest data
     #self.latest = None
     #try:
@@ -902,7 +902,7 @@ class Benchmarker:
     #  logging.warn("IOError on attempting to read toolset/benchmark/latest.json")
     #
     #self.results = None
-    #try: 
+    #try:
     #  if self.latest != None and self.name in self.latest.keys():
     #    with open(os.path.join(self.result_directory, str(self.latest[self.name]), 'results.json'), 'r') as f:
     #      # Load json file into config object
@@ -916,8 +916,8 @@ class Benchmarker:
         #Load json file into results object
         self.results = json.load(f)
     except IOError:
-      logging.warn("results.json for test %s not found.",self.name) 
-    
+      logging.warn("results.json for test %s not found.",self.name)
+
     if self.results == None:
       self.results = dict()
       self.results['name'] = self.name
