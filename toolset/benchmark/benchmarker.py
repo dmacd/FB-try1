@@ -862,7 +862,12 @@ class Benchmarker:
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
     # djm: hack to fix whatever the fuck is going wrong where these arent being set
-    if self.client_user == None: self.client_user = "ubuntu";
+    #if self.client_user == None: self.client_user = "ubuntu";
+
+    # okay go fuck yourself
+    self.client_user = "ubuntu";
+    self.database_user = "ubuntu";
+
 
     # setup some additional variables
     if self.database_user == None: self.database_user = self.client_user
